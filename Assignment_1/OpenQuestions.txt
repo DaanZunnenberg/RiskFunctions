@@ -1,6 +1,0 @@
-08/04/2024
-
-Open Questions:
-  1. For the value at risk and the expected shortfall, based on some distribution f, do we calculate the unconditional mean and then calculate the VAR, 
-     or is the VAR at time poirt t calculated using data from time points t - n - 1 up untill, and including, t - 1, for some n?
-  2. ... 

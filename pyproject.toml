@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "riskfunctions"
+version = "0.1.0"
+description = "QFRM coursework risk models: Variance-Covariance, Historic Simulation, CCC-GARCH, EWMA/FHS, stress testing, copulas, and factor analysis."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+    "matplotlib>=3.7",
+    "yfinance>=0.2",
+    "odfpy>=1.4",
+]
+
+[project.optional-dependencies]
+# Only needed for the copulas/ and factor_analysis/ examples.
+multivariate = [
+    "seaborn>=0.12",
+    # factor_analyzer 0.5.1 calls sklearn's check_array(force_all_finite=...),
+    # a kwarg removed in scikit-learn>=1.5 (renamed to ensure_all_finite).
+    # Pin below that until factor_analyzer releases a fix upstream.
+    "scikit-learn>=1.3,<1.5",
+    "factor_analyzer>=0.5",
+    "copulas>=0.10",
+]
+dev = [
+    "pytest>=7.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

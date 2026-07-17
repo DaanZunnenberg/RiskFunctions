@@ -1,13 +1,13 @@
 """
 Loss operator functions shared across all risk models.
 
-There are two loss operators in the original coursework, corresponding to
-the two portfolios in `common/data.py`:
+There are two loss operators here, corresponding to the two portfolios in
+`common/data.py`:
 
-- `loss_operator`: for the stock+Euribor portfolio (Assignment 1), which
-  models AAPL FX exposure and Euribor credit/time risk explicitly.
-- `group4_loss_operator`: for the close-prices portfolio (Assignment 2),
-  a simpler weighted-log-return loss with a scaled Euribor rate risk term.
+- `loss_operator`: for the stock+Euribor portfolio, which models AAPL FX
+  exposure and Euribor credit/time risk explicitly.
+- `close_prices_loss_operator`: for the close-prices portfolio, a simpler
+  weighted-log-return loss with a scaled Euribor rate risk term.
 """
 
 from __future__ import annotations
@@ -72,7 +72,7 @@ def loss_operator(Z: pd.DataFrame, weights, Value: float = 10 ** 8):
     return portfolio_loss, -loss_ind
 
 
-def group4_loss_operator(log_data: pd.DataFrame):
+def close_prices_loss_operator(log_data: pd.DataFrame):
     """
     Simplified loss operator for the close-prices portfolio: S&P 500 (EUR),
     DAX, AEX with fixed 0.2 weights each, plus a scaled Euribor rate-risk

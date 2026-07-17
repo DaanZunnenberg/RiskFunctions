@@ -1,14 +1,13 @@
 # RiskFunctions
 
-QFRM coursework risk models, organized by model family rather than by
-assignment, as an installable Python package.
+Risk models, organized by model family, as an installable Python package.
 
 ## Layout
 
 ```
 src/riskfunctions/           Library code (importable, no side effects on import)
     data.py                  Portfolio loading + cleaning (yfinance, Euribor CSV, close-prices .ods)
-    loss.py                  Loss operators (loss_operator, group4_loss_operator)
+    loss.py                  Loss operators (loss_operator, close_prices_loss_operator)
     backtest.py               Backtest, calculate_distances, christoffersen_test, binomial_test
     volatility.py             Shared GARCH(1,1)-style volatility filter (used by CCC-GARCH and EWMA-FHS)
     config.py                 Portfolio/backtest configuration (weights, alphas, date ranges)
@@ -25,7 +24,7 @@ src/riskfunctions/           Library code (importable, no side effects on import
 examples/                     Runnable scripts demonstrating each model end-to-end
 tests/                        Unit tests for the pure/deterministic library functions
 data/                         Input data (Euribor CSV, cached stock quotes, close-prices workbook)
-docs/                         Reference PDFs from the original coursework
+docs/                         Reference PDFs
 ```
 
 Each `models/<name>/` package holds only estimator/analysis functions —
@@ -75,8 +74,7 @@ pytest
   (S&P 500 in EUR, DAX, AEX, Euribor rates), used historically for a
   separate CCC-GARCH/backtesting exploration; not wired into the current
   examples but the loader (`riskfunctions.data.load_close_prices_portfolio`)
-  and matching loss operator (`riskfunctions.loss.group4_loss_operator`)
+  and matching loss operator (`riskfunctions.loss.close_prices_loss_operator`)
   are kept for reference.
-- `docs/`: reference PDFs (HS/QQ plots, VaR-Covar comparisons) from the
-  original coursework, one pair per portfolio since the two were not
-  byte-identical.
+- `docs/`: reference PDFs (HS/QQ plots, VaR-Covar comparisons), one pair
+  per portfolio since the two were not byte-identical.

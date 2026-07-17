@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from riskfunctions.loss import group4_loss_operator
+from riskfunctions.loss import close_prices_loss_operator
 from riskfunctions.data import credit_risk
 
 
@@ -21,7 +21,7 @@ def test_credit_risk_short_flips_sign_vs_long():
     np.testing.assert_allclose(loss_short, -loss_long)
 
 
-def test_group4_loss_operator_output_shape_and_columns():
+def test_close_prices_loss_operator_output_shape_and_columns():
     idx = pd.date_range("2020-01-01", periods=20, freq="D")
     rng = np.random.default_rng(7)
     log_data = pd.DataFrame(
@@ -34,7 +34,7 @@ def test_group4_loss_operator_output_shape_and_columns():
         },
         index=idx,
     )
-    portfolio_loss, ind_loss = group4_loss_operator(log_data)
+    portfolio_loss, ind_loss = close_prices_loss_operator(log_data)
 
     assert len(portfolio_loss) == len(log_data)
     assert list(ind_loss.columns) == ["S&P 500", "DAX", "AEX", "EURIBOR"]

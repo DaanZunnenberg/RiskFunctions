@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "riskfunctions"
 version = "0.1.0"
-description = "QFRM coursework risk models: Variance-Covariance, Historic Simulation, CCC-GARCH, EWMA/FHS, stress testing, copulas, and factor analysis."
+description = "Risk models: Variance-Covariance, Historic Simulation, CCC-GARCH, EWMA/FHS, stress testing, copulas, and factor analysis."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

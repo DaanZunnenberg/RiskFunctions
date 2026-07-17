@@ -23,8 +23,8 @@ from riskfunctions.models.stress_testing import shock_aapl, shock_euribor
 from riskfunctions.models.var_covariance import Var_Cov_ES, Var_Cov_VaR
 from riskfunctions.pipeline import backtest_by_year, build_portfolio_sample
 
-# The original coursework focuses the stress-test backtest on the shock
-# year and the one following it (year indices 11-12 relative to 2011).
+# The stress-test backtest focuses on the shock year and the one following
+# it (year indices 11-12 relative to 2011).
 SHOCK_YEAR_RANGE = (11, 13)
 
 DISTRIBUTIONS = [

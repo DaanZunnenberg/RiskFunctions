@@ -1,14 +1,13 @@
 """
 Shared data loading / cleaning utilities.
 
-This module covers the two portfolios used across the original QFRM
-assignments:
+This module covers the two portfolios used across the risk models:
 
-1. The "yfinance + Euribor" portfolio (originally Assignment 1):
+1. The "yfinance + Euribor" portfolio:
    AAPL, ASML, AIRBUS, LVMH, EURO50 stocks + EUR/USD FX + Euribor 3M rate.
    See `load_stock_euribor_portfolio`.
 
-2. The "close prices" portfolio (originally Assignment 2):
+2. The "close prices" portfolio:
    S&P 500 (in EUR), DAX, AEX, Euribor rates, read from an .ods workbook.
    See `load_close_prices_portfolio`.
 
@@ -151,8 +150,7 @@ def load_close_prices_portfolio(start_date: str = None, end_date: str = None) ->
     """
     Load the "close prices" portfolio (S&P 500 in EUR, DAX, AEX, Euribor
     rates, USD/EUR) from data/close_prices_portfolio.ods, as used in the
-    CCC-GARCH / Var-Covariance / Historic Simulation / EWMA-FHS analyses
-    that were originally in Assignment 2.
+    CCC-GARCH / Var-Covariance / Historic Simulation / EWMA-FHS analyses.
     """
     data = pd.read_excel(
         DATA_DIR / "close_prices_portfolio.ods", engine="odf", index_col="Date", parse_dates=True

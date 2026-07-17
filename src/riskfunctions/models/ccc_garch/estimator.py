@@ -14,8 +14,7 @@ import pandas as pd
 from riskfunctions.volatility import volatility
 
 # GARCH(1,1) persistence parameters used to filter each risk factor's
-# volatility. Fixed rather than fitted by MLE, matching the original
-# coursework's simplification.
+# volatility. Fixed rather than fitted by MLE, as a simplification.
 GARCH_ALPHA = 0.05
 GARCH_BETA = 0.93
 

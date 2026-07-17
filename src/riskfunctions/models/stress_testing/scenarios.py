@@ -10,9 +10,8 @@ from __future__ import annotations
 
 import pandas as pd
 
-# The shock window used throughout the original coursework: the last week
-# of December 2021, with an additional compounding shock over its middle
-# three days (Dec 25-27).
+# The shock window used throughout: the last week of December 2021, with
+# an additional compounding shock over its middle three days (Dec 25-27).
 _OUTER_WINDOW = ("2021-12-23", "2022-01-01")
 _INNER_WINDOW = ("2021-12-25", "2021-12-27")
 

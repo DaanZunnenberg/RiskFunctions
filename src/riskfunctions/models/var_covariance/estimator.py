@@ -1,7 +1,7 @@
 """
 Variance-Covariance (Delta-Normal) VaR / ES estimator.
 
-Pure functions only — no I/O, no printing, no plotting. See
+Pure functions only, no I/O, no printing, no plotting. See
 `examples/var_covariance_example.py` for a runnable demonstration that
 loads data, calls these functions, and backtests the result.
 """

@@ -4,7 +4,7 @@ bivariate Gaussian / Student-t copulas (via GaussianMultivariate with
 different univariate marginals), and full multivariate Gaussian /
 Student-t copulas.
 
-Requires the `copulas` package (pip install copulas). Pure fitting logic —
+Requires the `copulas` package (pip install copulas). Pure fitting logic,
 no plotting (see `riskfunctions.models.copulas.plotting`).
 """
 

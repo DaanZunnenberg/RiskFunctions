@@ -27,7 +27,7 @@ data/                         Input data (Euribor CSV, cached stock quotes, clos
 docs/                         Reference PDFs
 ```
 
-Each `models/<name>/` package holds only estimator/analysis functions —
+Each `models/<name>/` package holds only estimator/analysis functions:
 pure functions operating on DataFrames/arrays, no I/O beyond what a caller
 explicitly passes in, no `print`/`plt.show()` side effects baked into the
 math. Anything that prints results, produces plots, or wires together data

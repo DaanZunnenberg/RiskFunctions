@@ -82,30 +82,30 @@ than a live network run in this environment.
 Running the examples end-to-end (not just importing them) surfaced three
 real bugs inherited from the original notebooks, all caused by mixing
 positional (`x[t]`) and pandas label-based indexing on DatetimeIndex-ed
-Series — this used to silently work on older pandas and now raises
+Series; this used to silently work on older pandas and now raises
 `KeyError`:
 
-1. **`riskfunctions/loss.py` (`loss_operator`)** — `Z["EUR_USD"][0]` /
+1. **`riskfunctions/loss.py` (`loss_operator`)** - `Z["EUR_USD"][0]` /
    `Z["EUR_USD"][:-1]` used positional-style access on a label (date)
    index. Fixed by coercing to `.to_numpy()` before indexing.
-2. **`riskfunctions/loss.py` (`loss_operator`)** — the returned
+2. **`riskfunctions/loss.py` (`loss_operator`)** - the returned
    `portfolio_loss` was a bare `np.ndarray`, not a `pd.Series`, so any
    caller doing `.index`/`.iloc` on it (e.g. `Historic_Simulation`) broke.
    Fixed by wrapping the result in a `pd.Series` indexed like the input.
-3. **`riskfunctions/volatility.py` (`volatility`)** — `x[t]` assumed `x` is
+3. **`riskfunctions/volatility.py` (`volatility`)** - `x[t]` assumed `x` is
    positionally indexable, but callers pass a DatetimeIndex-ed `pd.Series`
    column directly. Fixed by coercing `x` to `np.asarray(x)` up front.
-4. **`riskfunctions/backtest.py` (`christoffersen_test`)** — computed
+4. **`riskfunctions/backtest.py` (`christoffersen_test`)** - computed
    `p01`/`p11` unconditionally (causing a spurious 0/0 `RuntimeWarning`)
    even though they're only used inside the `n1 > 0` branch. Fixed by
    moving the computation inside the guard with explicit zero-division
    handling.
-5. **`pyproject.toml`** — `factor_analyzer==0.5.1` calls
+5. **`pyproject.toml`** - `factor_analyzer==0.5.1` calls
    `sklearn.check_array(force_all_finite=...)`, a kwarg removed in
    `scikit-learn>=1.5` (renamed `ensure_all_finite`). Pinned
    `scikit-learn>=1.3,<1.5` in the `multivariate` extra until upstream
    releases a fix.
 
-None of these change the underlying model math — they are indexing/typing
+None of these change the underlying model math; they are indexing/typing
 fixes required to make the extracted functions actually runnable outside
 the original notebook's execution order and pandas version.

@@ -78,3 +78,5 @@ pytest
   are kept for reference.
 - `docs/`: reference PDFs (HS/QQ plots, VaR-Covar comparisons), one pair
   per portfolio since the two were not byte-identical.
+
+<!-- Last reviewed: 2026-11-03 -->

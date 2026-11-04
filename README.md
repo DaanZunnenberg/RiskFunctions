@@ -80,3 +80,4 @@ pytest
   per portfolio since the two were not byte-identical.
 
 <!-- Last reviewed: 2026-11-03 -->
+<!-- Last reviewed: 2026-11-04 -->

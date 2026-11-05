@@ -41,3 +41,4 @@ def test_fit_multivariate_copula_correlation_reflects_input_correlation():
     corr = copula.to_dict()["correlation"][0][1]
     assert corr > 0.5  # X, Y constructed with 0.6 correlation coefficient
     assert np.isfinite(log_likelihood)
+# Covers copula fitting edge cases.

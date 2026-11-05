@@ -18,3 +18,4 @@ def test_historic_simulation_es_at_least_var_on_average():
     result = Historic_Simulation(losses, window_size=50, port_weights=None, alpha=0.95)
     # ES conditions on losses >= VaR, so on average ES should not be below VaR
     assert (result.ES.to_numpy() >= result.VaR.to_numpy() - 1e-9).mean() > 0.9
+# Covers historical simulation VaR edge cases.

@@ -21,3 +21,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# Covers EWMA/FHS volatility estimation usage.

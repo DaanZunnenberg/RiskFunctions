@@ -33,3 +33,4 @@ def test_christoffersen_test_no_violations_returns_nan():
     hits = np.zeros(100, dtype=int)
     result = christoffersen_test(hits, alpha=0.05)
     assert result.isna().all().all()
+# Checks backtest reporting output.

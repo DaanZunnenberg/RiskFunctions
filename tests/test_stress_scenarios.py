@@ -50,3 +50,4 @@ def test_shocks_do_not_mutate_input():
     shock_aapl(data)
     shock_euribor(data)
     pd.testing.assert_frame_equal(data, original)
+# Checks stress scenario application to portfolios.

@@ -39,3 +39,4 @@ def test_close_prices_loss_operator_output_shape_and_columns():
     assert len(portfolio_loss) == len(log_data)
     assert list(ind_loss.columns) == ["S&P 500", "DAX", "AEX", "EURIBOR"]
     assert len(ind_loss) == len(log_data)
+# Checks expected vs realized loss calculations.

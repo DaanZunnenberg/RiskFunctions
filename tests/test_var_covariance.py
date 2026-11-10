@@ -42,3 +42,4 @@ def test_var_cov_es_student_t_requires_df_default():
 def test_var_cov_es_unsupported_distribution_raises():
     with pytest.raises(NotImplementedError):
         Var_Cov_ES(np.array([1.0]), alpha=0.95, dist=stats.expon)
+# Checks variance-covariance VaR calculations.

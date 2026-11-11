@@ -24,3 +24,4 @@ def test_volatility_zero_shocks_decays_to_omega_steady_state():
     vol = volatility(omega=0.04, alpha=0.0, beta=0.5, x=x)
     # sigma[1] = omega + 0 + beta * sigma[0]; sigma[0] is seeded from np.var(x[:50]) == 0
     assert np.isclose(vol[1] ** 2, 0.04)
+# Checks volatility estimator correctness.

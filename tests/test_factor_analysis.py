@@ -47,3 +47,4 @@ def test_factor_analysis_loadings_shape_and_rotation_options():
         fa = fit_factor_analysis(returns, n_factors=2, rotation=rotation)
         loadings = factor_analysis_loadings(fa, returns)
         assert loadings.shape == (3, 2)
+# Checks factor analysis decomposition correctness.
